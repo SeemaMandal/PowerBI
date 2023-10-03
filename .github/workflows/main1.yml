@@ -26,5 +26,5 @@ jobs:
 
       - name: Update Power BI
         run: |
-          # Replace /usr/local/bin/pbi with the actual full path to pbi from npm bin -g
-          /usr/local/bin/pbi -u ${{ secrets.POWER_BI_USERNAME }} -p ${{ secrets.POWER_BI_PASSWORD }} -f path/to/your/powerbi/file.pbix
+          
+          npm bin -g /usr/local/bin/pbi -u ${{ secrets.POWER_BI_USERNAME }} -p ${{ secrets.POWER_BI_PASSWORD }} -f path/to/your/powerbi/file.pbix
