@@ -1,0 +1,38 @@
+name: Power BI Update
+
+ 
+
+on:
+  push:
+    branches:
+      - main
+
+ 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+ 
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+ 
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+ 
+
+      - name: Install Power BI CLI
+        run: npm install -g powerbi-cli
+
+ 
+
+      - name: Update Power BI
+        run: |
+          pbi -u ${{ secrets.POWER_BI_USERNAME }} -p ${{ secrets.POWER_BI_PASSWORD }} -f path/to/your/powerbi/file.pbix
