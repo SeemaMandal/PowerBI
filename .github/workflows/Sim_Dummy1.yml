@@ -1,0 +1,42 @@
+name: Power BI Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: Deploy to Power BI Service
+      if: github.ref == 'refs/heads/main'
+      run: |
+        # Access GitHub Secrets for Power BI credentials
+        $powerBiUsername = ${{ secrets.POWER_BI_USERNAME }}
+        $powerBiPassword = ${{ secrets.POWER_BI_PASSWORD }}
+
+        # Use your Power BI credentials securely in your deployment script
+        # For security reasons, avoid printing or exposing the credentials in logs
+        # Replace the following echo lines with your deployment script commands
+        echo "Deploying using username: $seema.mandal@global-csg.com"
+        echo "Deploying using password: 09876@Chiv"
+
+        # Call your PowerShell script or command to deploy to Power BI
+        # Replace the comments with actual deployment commands
+        # ./deploy-to-powerbi.ps1 $powerBiUsername $powerBiPassword
