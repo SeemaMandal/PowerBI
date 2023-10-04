@@ -35,4 +35,5 @@ jobs:
 
           # Publish the Power BI report to the Power BI service
           pbi import -f SQL_AND_POWERBI - Copy - Copy (2).pbix
+
           -d "$datasetName" -r "$reportName" -g "$workspaceName"
